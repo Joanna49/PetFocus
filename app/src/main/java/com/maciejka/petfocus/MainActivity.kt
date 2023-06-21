@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
             pokazFragment(ToDoFragment())
         }
         binding.btnZwierzak.setOnClickListener{
-            pokazFragment(ToDoFragment())
+            pokazFragment(ZwierzakFragment())
         }
     }
 
