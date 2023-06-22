@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context=".PomocPomodoroFragment"
+    android:background="@color/pomodoroBackground">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <ImageButton
+        android:id="@+id/btnWracam"
+        android:layout_width="wrap_content"
+        android:layout_height="58dp"
+        android:backgroundTint="@color/powitalnyBackground"
+        android:src="@drawable/strzalka" />
+
+    <TextView
+        android:id="@+id/text_Technika"
+        android:layout_width="353dp"
+        android:layout_height="174dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:text="Technika pomodoro"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="40sp" />
+
+    <TextView
+        android:id="@+id/text_opis_pomodoro"
+        android:layout_width="match_parent"
+        android:layout_height="168dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="119dp"
+        android:text="Pomodoro, to technika do zarządzania czasem. Można wykorzystać ją w kilku krokach."
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/text_opis_krok1"
+        android:layout_width="match_parent"
+        android:layout_height="168dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="200dp"
+        android:text="1. Wybierz zadanie i czas realizacji. W aplikacji możesz skorzystać z dwóch opcji."
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/text_opis_krok2"
+        android:layout_width="match_parent"
+        android:layout_height="168dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="289dp"
+        android:text="2.Przygotuj czystą kartkę i długopis. Podczas wykonywania obowiązku możesz notować wszystkie zadania i pragnienia niezwiązane z określonym obowiązkiem i zrealizować je w trakcie przerwy"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/text_opis_krok3"
+        android:layout_width="match_parent"
+        android:layout_height="168dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="423dp"
+        android:text="3. Po zakończeniu pracy minutnika zrób krótką przerwę. Staraj się wyciszyć umysł w tym czasie."
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+
+    <TextView
+        android:id="@+id/text_opis_krok4"
+        android:layout_width="match_parent"
+        android:layout_height="168dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="511dp"
+        android:text="4.Jeśli Twoje zadanie nie jest gotowe, nastaw minutnik jeszcze raz."
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/text_opis_krok5"
+        android:layout_width="match_parent"
+        android:layout_height="128dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="582dp"
+        android:text="5.Ciesz się wykonanym zadaniem i pamiętaj o tym, by docenić swoje sukcesy"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+
+
+    </RelativeLayout>
+
+</ScrollView>

@@ -3,18 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PomodoroFragment"
+    tools:context=".Przerwa25Fragment"
     android:background="@color/pomodoroBackground">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:id="@+id/text_Minutnik"
+        android:id="@+id/text_Przerwa"
         android:layout_width="338dp"
         android:layout_height="49dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="0dp"
-        android:text="@string/tekstTimerPomodoro"
+        android:text="Przerwa"
         android:textAlignment="center"
         android:textSize="35sp"
         android:textColor="#FFFFFF"/>
@@ -23,7 +23,7 @@
         android:id="@+id/text_odliczanie"
         android:layout_width="match_parent"
         android:layout_height="142dp"
-        android:layout_below="@+id/text_Minutnik"
+        android:layout_below="@+id/text_Przerwa"
         android:layout_centerVertical="true"
         android:layout_marginTop="100dp"
         android:text="00:00"
@@ -62,15 +62,14 @@
         android:layout_alignBottom="@+id/text_odliczanie"
         android:layout_marginBottom="-47dp"
         android:src="@drawable/baseline_radio_button_unchecked_24" />
+
     <Button
-        android:id="@+id/btnPrzerwa"
+        android:id="@+id/btnPomodoroPowrot"
         android:layout_width="match_parent"
         android:layout_height="75dp"
         android:layout_below="@+id/Zegar"
         android:layout_marginTop="121dp"
         android:backgroundTint="@color/powitalnyBackground"
-        android:text="Przerwa"
+        android:text="Powrót do Pomodoro"
         android:textSize="20sp" />
-    />
-
 </RelativeLayout>

@@ -11,4 +11,15 @@
     <color name="toDoBackground">#A1D5F8</color>
     <color name="zwierzakBackground">#FADA</color>
     <color name="gornyBackground">#F4E3B0</color>
+    <color name="powitalnyBackground">#B59FDD</color>
+    <color name="sliderColor">#FF9800</color>
+    <color name="green">#5ca854</color>
+    <color name="yellow">#c4ba5e</color>
+    <color name="red">#f29085</color>
+    <color name="wykonaneZadanie">#B59FDD</color>
+    <color name="wykonaneZadanieTekst">#FFFFFF</color>
+    <color name="niewykonaneZadanie">#FADA</color>
+    <color name="niewykonaneZadanieTekst">#FFFFFF</color>
+    <color name="closeButton">#f5a88e</color>
+
 </resources>

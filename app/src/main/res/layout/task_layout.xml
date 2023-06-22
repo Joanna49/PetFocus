@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginVertical="5dp">
+
+    <TextView
+        android:id="@+id/ukrytyTermin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Termin: Dziś   Godzina: 18:40"
+        android:visibility="gone"
+        android:paddingHorizontal="20dp"
+        android:textStyle="bold"
+        android:background="@color/pomodoroBackground"/>
+
+    <LinearLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/zadanie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/niewykonaneZadanie"
+        android:weightSum="6">
+
+        <ImageView
+            android:id="@+id/checkZadania"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/baseline_check_box_outline_blank_24"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/tekstZadania"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:padding="10sp"
+            android:text="Nowy"
+            android:textStyle="bold"
+            android:textColor="@color/niewykonaneZadanieTekst"
+            android:textSize="24sp" />
+
+
+        <ImageView
+            android:id="@+id/btnZamknieciaZadania"
+            android:layout_width="wrap_content"
+            android:paddingLeft="30dp"
+            android:paddingRight="10dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/baseline_close_24"
+            android:layout_weight="1"
+            android:background="@color/closeButton"/>
+
+    </LinearLayout>
+</LinearLayout>
