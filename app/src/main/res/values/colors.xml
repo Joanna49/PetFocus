@@ -17,9 +17,9 @@
     <color name="yellow">#c4ba5e</color>
     <color name="red">#f29085</color>
     <color name="wykonaneZadanie">#B59FDD</color>
-    <color name="wykonaneZadanieTekst">#A4171717</color>
+    <color name="wykonaneZadanieTekst">#FFFFFF</color>
     <color name="niewykonaneZadanie">#FADA</color>
-    <color name="niewykonaneZadanieTekst">#171717</color>
+    <color name="niewykonaneZadanieTekst">#FFFFFF</color>
     <color name="closeButton">#f5a88e</color>
 
 </resources>

@@ -1,6 +1,5 @@
 package com.maciejka.petfocus
 
-import android.content.Context
 import android.os.Bundle
 import android.os.CountDownTimer
 import androidx.fragment.app.Fragment
@@ -10,8 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.core.view.isInvisible
-import com.google.android.material.slider.Slider
-import com.maciejka.petfocus.databinding.FragmentPomodoroBinding
+import com.maciejka.petfocus.databinding.FragmentPrzerwaBinding
 import com.maciejka.petfocus.databinding.FragmentZwierzakBinding
 import java.util.*
 
@@ -25,8 +23,8 @@ private const val ARG_PARAM2 = "param2"
  * Use the [PomodoroFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class PomodoroFragment : Fragment() {
-    private var _binding: FragmentPomodoroBinding? = null
+class PrzerwaFragment : Fragment() {
+    private var _binding: FragmentPrzerwaBinding? = null
     private val binding get() = _binding!!
     private val START_TIME_IN_MILLIS = 600000
 
@@ -43,7 +41,6 @@ class PomodoroFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-
         }
     }
 
@@ -68,11 +65,12 @@ class PomodoroFragment : Fragment() {
         }
         updateCountDownText()
 
-        binding.btnPrzerwa.setOnClickListener {
+        binding.btnPomodoroPowrot.setOnClickListener {
 
-            pokazFragment(PrzerwaFragment())
+            pokazFragment(PomodoroFragment())
         }
     }
+
     fun startTimer() {
         mCountDownTimer = object : CountDownTimer(mTimeLeftInMillis.toLong(), 1000) {
             override fun onTick(millisUntilFinished: Long) {
@@ -86,7 +84,7 @@ class PomodoroFragment : Fragment() {
                 mButtonStartPauza.text ="Start"
                 mButtonStartPauza.setVisibility(View.INVISIBLE)
                 mButtonReset.setVisibility(View.VISIBLE)
-                DodajEnergii()
+
             }
         }.start()
 
@@ -110,7 +108,7 @@ class PomodoroFragment : Fragment() {
 
     }
     fun updateCountDownText(){
-        val minutes = (mTimeLeftInMillis /200)/ 60
+        val minutes = (mTimeLeftInMillis /1000)/ 60
         val seconds = (mTimeLeftInMillis /1000)% 60
 
         val timeLeftFormatted = String.format(Locale.getDefault(),"%02d:%02d", minutes, seconds)
@@ -122,7 +120,7 @@ class PomodoroFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentPomodoroBinding.inflate(layoutInflater, container, false)
+        _binding = FragmentPrzerwaBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
@@ -145,23 +143,10 @@ class PomodoroFragment : Fragment() {
                 }
             }
     }
-        private fun pokazFragment(fragment: Fragment){
-            val fragmentTransaction = parentFragmentManager.beginTransaction()
-            fragmentTransaction.addToBackStack(null)
-            fragmentTransaction.replace(R.id.srodkowyKontener,fragment,null)
-            fragmentTransaction.commit()
-        }
-
-    fun DodajEnergii(){
-        val sharedPrefZwierz = requireActivity().getSharedPreferences("zwierzeFile",
-            Context.MODE_PRIVATE
-        )
-        val wczytanaEnergia = sharedPrefZwierz.getInt("ENERGIA",0)
-        val editorEnergia = sharedPrefZwierz.edit()
-        if(wczytanaEnergia+20<=100){
-            editorEnergia.putInt("ENERGIA", wczytanaEnergia+20)
-            editorEnergia.apply()
-            requireActivity().findViewById<Slider>(R.id.kondycja).value =  wczytanaEnergia+20.toFloat()
-        }
+    private fun pokazFragment(fragment: Fragment){
+        val fragmentTransaction = parentFragmentManager.beginTransaction()
+        fragmentTransaction.addToBackStack(null)
+        fragmentTransaction.replace(R.id.srodkowyKontener,fragment,null)
+        fragmentTransaction.commit()
     }
 }

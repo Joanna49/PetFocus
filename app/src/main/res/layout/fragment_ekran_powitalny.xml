@@ -13,7 +13,8 @@
         android:layout_height="44dp"
         android:text="@string/tekstEkranPowitalny"
         android:textAlignment="center"
-        android:textSize="25sp" />
+        android:textSize="28sp"
+        android:textColor="#FFFFFF"/>
 
     <ImageView
         android:id="@+id/imageViewWelcome"

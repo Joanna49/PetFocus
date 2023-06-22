@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MenuPomodoroFragment"
+    android:background="@color/pomodoroBackground"
+    android:padding="10dp">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <ImageButton
+        android:id="@+id/btnHelp"
+        android:layout_width="wrap_content"
+        android:layout_height="58dp"
+        android:backgroundTint="@color/powitalnyBackground"
+        android:src="@drawable/pomoc" />
+
+
+
+    <TextView
+        android:id="@+id/text_Wybor"
+        android:layout_width="353dp"
+        android:layout_height="154dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:text="Wybierz czas trwania pomodoro"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="40sp" />
+
+    <Button
+        android:id="@+id/btn25"
+        android:layout_width="match_parent"
+        android:layout_height="86dp"
+        android:layout_below="@+id/text_Wybor"
+        android:backgroundTint="@color/powitalnyBackground"
+        android:text="25 minut i 5 minut przerwy"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btn50"
+        android:layout_width="match_parent"
+        android:layout_height="86dp"
+        android:layout_below="@+id/btn25"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/powitalnyBackground"
+        android:text="50 minut i 10 minut przerwy"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/Budzik"
+        android:layout_width="match_parent"
+        android:layout_height="212dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/btn50"
+        android:src="@drawable/budzik" />
+    />
+
+</RelativeLayout>

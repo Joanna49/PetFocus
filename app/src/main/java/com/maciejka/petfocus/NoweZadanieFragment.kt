@@ -1,8 +1,13 @@
 package com.maciejka.petfocus
 
+import android.Manifest
+import android.app.AlarmManager
 import android.app.DatePickerDialog
+import android.app.PendingIntent
 import android.app.TimePickerDialog
 import android.content.Context
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.icu.util.LocaleData
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,6 +16,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.DatePicker
 import android.widget.TimePicker
+import androidx.core.app.ActivityCompat
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
+import androidx.core.content.ContextCompat.getSystemService
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.maciejka.petfocus.databinding.FragmentNoweZadanieBinding
@@ -24,8 +33,8 @@ class NoweZadanieFragment : Fragment(), DatePickerDialog.OnDateSetListener, Time
     private var _binding: FragmentNoweZadanieBinding? = null
     private val binding get() = _binding!!
     private val calendar = Calendar.getInstance()
-    private val formaterDate = SimpleDateFormat("d MMMM yyyy",Locale.UK)
-    private val formaterTime = SimpleDateFormat("HH:mm",Locale.UK)
+    private val formaterDate = SimpleDateFormat("d MMMM yyyy")
+    private val formaterTime = SimpleDateFormat("HH:mm")
     private val today = calendar.time
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,12 +68,17 @@ class NoweZadanieFragment : Fragment(), DatePickerDialog.OnDateSetListener, Time
         val editor = sharedPref.edit()
 
         binding.btnZapiszZadanie.setOnClickListener {
-            val zadanie = Zadanie(View.generateViewId(),binding.nazwaZadania.text.toString(),null, null, "niewykonane")
+            var tekstZadania = binding.nazwaZadania.text.toString()
+            if(tekstZadania == ""){
+                tekstZadania = "Nowe zadanie"
+            }
+            val zadanie = Zadanie(View.generateViewId(),tekstZadania,null, "Termin: " + formaterDate.format(calendar.timeInMillis), "Godzina: " + formaterTime.format(calendar.timeInMillis),"niewykonane")
             dane.plusAssign(zadanie)
             jsonString = gson.toJson(dane)
             editor.putString("ZADANIA",jsonString)
             editor.apply()
 
+            StartAlarm(calendar)
             pokazFragment(ToDoFragment())
         }
 
@@ -100,5 +114,12 @@ class NoweZadanieFragment : Fragment(), DatePickerDialog.OnDateSetListener, Time
             set(Calendar.MINUTE, minute)
         }
         binding.godzina.text = "Godzina: " + formaterTime.format(calendar.timeInMillis)
+    }
+
+    private fun StartAlarm(calendar: Calendar){
+        val alarmManager = requireActivity().getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        val intent = Intent(requireContext(),AlarmReceiver::class.java)
+        val pendingIntent = PendingIntent.getBroadcast(requireContext(),0,intent,0)
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP,calendar.timeInMillis,pendingIntent)
     }
 }
